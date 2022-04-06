@@ -2,22 +2,27 @@
 #include "../omega_motors.h"
 #include "../omega_motors.cpp"
 
-
-Motor motor;
+Motor motor1(PB4, PD6, 3, &PORTB, &PORTD, &DDRB, &DDRD);
 
 void setup() {
 
-  pinMode(8, OUTPUT);
-  pinMode(12, OUTPUT);
-
-  motor = Motor(PB4, PD6, &PORTC, &PORTD, 3);
-
-  motor.setSpeed(255, FOWARD);
-
-  digitalWrite(1, 0);
-  analogWrite(1, 20);
 }
 
 void loop() {
+  motor1.setSpeed(255, FOWARD);
+
+  delay(500);
+
+  motor1.setSpeed(255, BACKWARD);
+
+  delay(500);
+
+  motor1.setSpeed(0, STOP);
+
+  delay(500);
+
+  motor1.setSpeed(0, STOP_HOLDING);
+
+  delay(500);
 
 }

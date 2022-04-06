@@ -16,9 +16,11 @@ typedef enum {
         Motor(
             byte bitInA,
             byte bitInB,
+            byte enable,
             volatile uint8_t* portInA,
             volatile uint8_t* portInB,
-            byte enable
+            volatile uint8_t* ddrInA,
+            volatile uint8_t* ddrInB 
         );
     void setSpeed(uint8_t speed, Directions direction);
 

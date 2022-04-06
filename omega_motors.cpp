@@ -6,9 +6,11 @@
 Motor::Motor(
             byte bitInA,
             byte bitInB,
+            byte enable,
             volatile uint8_t* portInA,
             volatile uint8_t* portInB,
-            byte enable
+            volatile uint8_t* ddrInA,
+            volatile uint8_t* ddrInB            
         )
 {
     _bitInA = bitInA;
@@ -16,6 +18,9 @@ Motor::Motor(
     _portInA = portInA;
     _portInB = portInB;
     _enable = enable;
+
+    *ddrInA |= (1 << _bitInA);
+    *ddrInB |= (1 << _bitInB);
 }
 
 void Motor::setSpeed(uint8_t speed, Directions direction)
@@ -43,7 +48,7 @@ void Motor::setSpeed(uint8_t speed, Directions direction)
     case STOP_HOLDING:
         *_portInA |= (1 << _bitInA);
         *_portInB |= (1 << _bitInB);
-        analogWrite(_enable, 100);
+        analogWrite(_enable, 255);
         break;
         
     default:
