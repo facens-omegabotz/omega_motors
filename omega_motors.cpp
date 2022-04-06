@@ -42,13 +42,13 @@ void Motor::setSpeed(uint8_t speed, Directions direction)
     case STOP: 
         *_portInA &= ~(1 << _bitInA);
         *_portInB &= ~(1 << _bitInB);
-        analogWrite(_enable, 0);
+        analogWrite(_enable, 255);
         break;
 
     case STOP_HOLDING:
         *_portInA |= (1 << _bitInA);
         *_portInB |= (1 << _bitInB);
-        analogWrite(_enable, 255);
+        analogWrite(_enable, 0);
         break;
         
     default:
