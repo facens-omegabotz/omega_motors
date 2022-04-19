@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include "../omega_motors.h"
-#include "../omega_motors.cpp"
+#include "omega_motors.h"
+#include "omega_motors.cpp"
 
 Motor motor1(PB4, PD6, 3, &PORTB, &PORTD, &DDRB, &DDRD);
 

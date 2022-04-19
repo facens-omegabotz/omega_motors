@@ -23,6 +23,19 @@ Motor::Motor(
     *ddrInB |= (1 << _bitInB);
 }
 
+void Motor::setSpeed(int speed)
+{
+    uint8_t moduloVelocidade;
+    if(speed < 0)
+    {
+        moduloVelocidade = abs(speed);
+        setSpeed((uint8_t)moduloVelocidade, BACKWARD);
+    } else 
+    {
+        setSpeed((uint8_t)moduloVelocidade, FOWARD);
+    }
+}
+
 void Motor::setSpeed(uint8_t speed, Directions direction)
 {
     switch (direction)

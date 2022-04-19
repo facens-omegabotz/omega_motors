@@ -23,6 +23,7 @@ typedef enum {
             volatile uint8_t* ddrInB 
         );
     void setSpeed(uint8_t speed, Directions direction);
+    void setSpeed(int speed);
 
 
     private:
