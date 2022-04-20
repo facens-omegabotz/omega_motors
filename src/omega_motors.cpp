@@ -25,10 +25,9 @@ Motor::Motor(
 
 void Motor::setSpeed(int speed)
 {
-    uint8_t moduloVelocidade;
+    uint8_t moduloVelocidade = abs(speed);
     if(speed < 0)
     {
-        moduloVelocidade = abs(speed);
         setSpeed((uint8_t)moduloVelocidade, BACKWARD);
     } else 
     {
